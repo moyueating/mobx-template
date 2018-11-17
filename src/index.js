@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from "mobx-react";
+import Routes from './routes';
+import './index.scss';
+import './utils/axiosMiddleware';
+import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import store from './store';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+ReactDOM.render(
+  <Provider appStore={store}>
+    <Router basename="/">
+      <Routes />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);
+
+
 serviceWorker.unregister();

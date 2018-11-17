@@ -1,0 +1,12 @@
+::-webkit-scrollbar {
+  width:0px;
+  height:0px;
+  background: rgba(0,0,0,0)
+}
+::-webkit-input-placeholder{
+  color: #999;
+}
+// 此处兼容vw图片问题，不可删除
+img { 
+  content: normal !important; 
+}
